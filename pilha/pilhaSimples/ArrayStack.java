@@ -1,6 +1,6 @@
 package ed.pilha.pilhaSimples;
 
-public abstract class ArrayStack implements Stackable{
+public class ArrayStack implements Stackable{
 
     private int pointerTop;
     private Object [] data;
