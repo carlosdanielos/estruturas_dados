@@ -78,7 +78,7 @@ public class RotateQueue implements Queueable{
         for(int i = 0; i < numberElements; i++){
             result += data[temp];
             temp = next(temp);
-            if(temp != numberElements){
+            if(temp != numberElements - 1){
                 result += ", ";
             }
         }
