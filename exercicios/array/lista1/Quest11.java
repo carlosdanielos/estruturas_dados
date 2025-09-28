@@ -1,14 +1,15 @@
-package ed.array.lista1;
+package ed.exercicios.array.lista1;
 
 import java.util.Scanner;
 
-public class Quest10{
+public class Quest11{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 
         int[] array1 = new int[10];
         int[] array2 = new int[10];
-        int[] result = new int[20];
+        int[] array3 = new int[10];
+        int[] result = new int[30];
 
 
         System.out.println("-----Digite os 10 primeiros números-----");
@@ -17,15 +18,23 @@ public class Quest10{
             array1[i] = scanner.nextInt();
         }
 
-        System.out.println("-----Digite os 10 últimos números-----");
+        System.out.println("-----Digite outros 10 números-----");
         for(int i = 0; i < array1.length; i++){
             System.out.print((i + 1) + "º número: ");
             array2[i] = scanner.nextInt();
         }
+
+        System.out.println("-----Digite os últimos 10 números-----");
+        for(int i = 0; i < array1.length; i++){
+            System.out.print((i + 1) + "º número: ");
+            array3[i] = scanner.nextInt();
+        }
+
         int k = 0;
         for(int i = 0; i < 10; i++){
             result[k++] = array1[i];
             result[k++] = array2[i];
+            result[k++] = array3[i];
         }
 
         System.out.println("-----Resultado-----");

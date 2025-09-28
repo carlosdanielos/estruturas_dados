@@ -72,10 +72,10 @@ public class ArrayDeQue implements DeQueable{
     }
 
     public int next (int head){
-        return (head++) % data.length;
+        return (head + 1) % data.length;
     }
     public int prior (int head){
-        return ((head--) + data.length) % data.length;
+        return ((head - 1) + data.length) % data.length;
     }
 
     @Override

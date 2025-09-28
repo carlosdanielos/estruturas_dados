@@ -51,9 +51,50 @@ public class ArrayList implements Listable{
     private int map (int index){
         return (head + index) % data.length;
     }
-    public void insert(Object data, int logicalIndex){
 
+
+    /*@Override
+    public void insert(Object data, int logicalIndex){
+        if(isFull()){
+            System.err.println("List is full!");
+        }
+        if(logicalIndex < 0 || logicalIndex > numberElements){
+            System.err.println("invalid index!");
+        }
+        int physicalIndex = map(logicalIndex);
+
+        int aux = tail;
+
+        for(int i = 0; i < (numberElements - logicalIndex); i++){
+            this.data[next(aux)] = this.data[aux];
+            aux = prior(aux);
+        }
+        this.data[aux] = data;
+        numberElements++;
+        tail = next(tail);
+    }*/
+
+
+    public void insert(Object data, int logicalIndex){
+        if(isFull()){
+            System.err.println("List is full!");
+        }
+        if(logicalIndex < 0 || logicalIndex > numberElements){
+            System.err.println("invalid index!");
+        }
+        int physicalIndex = map(logicalIndex);
+
+        int aux = head;
+
+        for(int i = 0; i < logicalIndex; i++){
+            this.data[prior(aux)] = this.data[aux];
+            aux = next(aux);
+        }
+        this.data[aux] = data;
+        numberElements++;
+        head = prior(head);
     }
+
 
     @Override
     public void append(Object data){
@@ -102,7 +143,7 @@ public class ArrayList implements Listable{
         if(isEmpty()){
             System.err.println("List is empty!");
         }else if(logicalIndex < 0 || logicalIndex > numberElements - 1){
-            System.err.println("Invelid Index");
+            System.err.println("Invalid Index!");
         } else{
             int physicalIndex = map(logicalIndex);
             this.data[physicalIndex] = data;
@@ -110,10 +151,51 @@ public class ArrayList implements Listable{
     }
 
 
+    /*@Override
+    public Object delete(int logicalIndex){
+        if(isEmpty()){
+            System.err.println("List is empty!");
+        }
+        if(logicalIndex < 0 || logicalIndex >= numberElements){
+            System.err.println("Invalid Index!");
+        }
+
+        int  physicalIndex = map(logicalIndex);
+        int aux = physicalIndex;
+        Object temp = this.data[physicalIndex];
+
+        for(int i = 0; i < (numberElements-logicalIndex-1); i++){
+            this.data[aux] = this.data[next(aux)];
+            aux = next(aux);
+        }
+        numberElements--;
+        tail = prior(tail);
+        return temp;
+    }*/
+
     @Override
     public Object delete(int logicalIndex){
-        return null;
+        if(isEmpty()){
+            System.err.println("List is empty!");
+        }
+        if(logicalIndex < 0 || logicalIndex >= numberElements){
+            System.err.println("Invalid Index!");
+        }
+
+        int  physicalIndex = map(logicalIndex);
+        int aux = physicalIndex;
+        Object temp = this.data[physicalIndex];
+
+        for(int i = 0; i < logicalIndex; i++){
+            this.data[aux] = this.data[prior(aux)];
+            aux = prior(aux);
+        }
+        numberElements--;
+        head = next(head);
+        return temp;
     }
+
+
 
     @Override
     public void clear(){

@@ -1,4 +1,4 @@
-package ed.array.lista1;
+package ed.exercicios.array.lista1;
 import java.util.Scanner;
 
 

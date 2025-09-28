@@ -45,7 +45,7 @@ public class RotateQueue implements Queueable{
     }
 
     public int next (int head){
-        return (head++) % data.length;
+        return (head + 1) % data.length;
     }
 
     @Override
