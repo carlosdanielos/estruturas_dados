@@ -6,11 +6,29 @@ public class DoubleNode<T> {
     private DoubleNode<T> previous;
 
 
-    public DoubleNode<T> getNext() { return next; }
-    public DoubleNode<T> getPrevious() { return previous; }
-    public T getData() { return data; }
+    public DoubleNode<T> getNext() {
+        return next;
+    }
 
-    public void setData(T data) { this.data = data; }
-    public void setNext(DoubleNode<T> next) { this.next = next; }
-    public void setPrevious(DoubleNode<T> previous) { this.previous = previous; }
+    public DoubleNode<T> getPrevious() {
+        return previous;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public void setNext(DoubleNode<T> next) {
+        this.next = next;
+    }
+
+    public void setPrevious(DoubleNode<T> previous) {
+        this.previous = previous;
+    }
+
 }
